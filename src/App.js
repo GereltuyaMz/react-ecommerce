@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
+import Header from './home/Header';
+import Navigation from './home/Navigation';
+import Hero from './home/Hero';
+import PopularProducts from './home/PopularProducts';
+import { popularProducts } from "./data/products";
 
 function App() {
+  const [addWishlist, setAddWishlist] = useState([]);
+
+  const handleWishlist = (productId) => {
+    const filtered = popularProducts.filter(product => product.id === productId);
+    // console.log("filteredProduct", ...filtered);
+    setAddWishlist([...addWishlist, ...filtered]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header addWishlist={addWishlist} />
+      <Navigation />
+      <Hero />
+      <PopularProducts handleWishlist={handleWishlist} />
     </div>
   );
 }
