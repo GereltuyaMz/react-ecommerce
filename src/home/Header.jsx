@@ -64,7 +64,7 @@ const Header = ({ addWishlist }) => {
 						<img
 							src="icons/heart.svg"
 							alt="heart"
-							onClick={() => setWishlist(!wishlist)}
+							onClick={() => setWishlist(!wishlist)} 
 						/>
 						<p>{addWishlist.length}</p>
 					</div>

@@ -1,5 +1,23 @@
+:root {
+	--primary-white: rgba(255, 255, 255, 1);
+	--orange: rgba(237, 164, 21, 1);
+	--blue: rgba(179, 212, 229, 1);
+	--dark-blue: rgba(0, 63, 98, 1);
+	--secondary-blue: rgba(27, 90, 125, 1);
+	--light-blue: rgba(46, 143, 197, 1);
+	--gray-black: rgba(74, 74, 74, 1);
+	--gray: #d9d9d9;
+	--primary-grey: rgba(238, 238, 238, 1);
+	--light-grey: rgba(244, 244, 244, 1);
+	--green: rgba(48, 189, 87, 1);
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
 }
