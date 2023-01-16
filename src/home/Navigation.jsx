@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet, Link } from "react-router-dom";
 
 const Navigation = () => {
 	return (
@@ -9,15 +10,15 @@ const Navigation = () => {
 					<img src="icons/arrow-down.svg" alt="arrow-down" />
 				</li>
 				<li>
-					<a href="#">Home</a>
+					<Link to="/">Home</Link>
 					<img src="icons/arrow-down-black.svg" alt="arrow-down" />
 				</li>
 				<li>
-					<a href="#">Catalog</a>
+					<Link to="/signIn">Sign in</Link>
 					<img src="icons/arrow-down-black.svg" alt="arrow-down" />
 				</li>
 				<li>
-					<a href="#">Blog</a>
+					<Link to="/about">About</Link>
 				</li>
 				<li>
 					<a href="#">Pages</a>

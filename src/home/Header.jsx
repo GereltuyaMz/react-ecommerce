@@ -21,12 +21,12 @@ const Top = () => {
 	);
 };
 
-const WishList = ({ addWishlist }) => {
+const WishList = () => {
 	return (
 		<div className="wishlist">
 			<h3>Wishlist</h3>
-			{addWishlist.length === 0 && <h4>Your wishlist is empty</h4>}
-			{addWishlist.map((wish) => {
+			{/* {addWishlist.length === 0 && <h4>Your wishlist is empty</h4>} */}
+			{/* {addWishlist.map((wish) => {
 				return (
 					<div className="wishlist-product" key={wish.id}>
 						<img src={wish.img} alt={wish.name} />
@@ -36,12 +36,12 @@ const WishList = ({ addWishlist }) => {
 						</div>
 					</div>
 				);
-			})}
+			})} */}
 		</div>
 	);
 };
 
-const Header = ({ addWishlist }) => {
+const Header = () => {
 	const [wishlist, setWishlist] = useState(false);
 
 	return (
@@ -64,11 +64,11 @@ const Header = ({ addWishlist }) => {
 						<img
 							src="icons/heart.svg"
 							alt="heart"
-							onClick={() => setWishlist(!wishlist)} 
+							onClick={() => setWishlist(!wishlist)}
 						/>
-						<p>{addWishlist.length}</p>
+						{/* <p>{addWishlist.length}</p> */}
 					</div>
-					{wishlist && <WishList addWishlist={addWishlist} />}
+					{/* {wishlist && <WishList addWishlist={addWishlist} />} */}
 					<div className="cart align-center">
 						<img src="icons/shopping-cart.svg" alt="cart" />
 						<p>0</p>

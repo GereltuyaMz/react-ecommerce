@@ -1,30 +1,25 @@
 import React, { useState } from "react";
 import './App.css';
-import { popularProducts } from "./data/products";
-import Header from './home/Header';
-import Navigation from './home/Navigation';
-import Hero from './home/Hero';
-import PopularProducts from './home/PopularProducts';
-import Sale from "./home/Sale";
-import ProductShowcase from "./home/ProductShowcase";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+import Home from "./home";
+import About from "./About";
+import SignIn from "./SignIn";
+import Header from "./home/Header";
+import Navigation from "./home/Navigation";
 
 function App() {
-  const [addWishlist, setAddWishlist] = useState([]);
-
-  const handleWishlist = (productId) => {
-    const filtered = popularProducts.filter(product => product.id === productId);
-    setAddWishlist([...addWishlist, ...filtered]);
-  };
-
   return (
-    <div className="app">
-      <Header addWishlist={addWishlist} />
+    <>
+      <Header />
       <Navigation />
-      <Hero />
-      <PopularProducts handleWishlist={handleWishlist} />
-      <Sale />
-      <ProductShowcase />
-    </div>
+      <div className="header"></div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/signIn" element={<SignIn />} />
+      </Routes>
+    </>
+
   );
 }
 
