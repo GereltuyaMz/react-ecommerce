@@ -21,3 +21,7 @@
 body {
 	font-family: "Poppins", sans-serif;
 }
+
+.detail-img {
+	width: 500px;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./home.css";
+import { AiOutlineDelete } from "react-icons/ai";
 
 const Top = () => {
 	return (
@@ -21,29 +22,38 @@ const Top = () => {
 	);
 };
 
-const WishList = () => {
+const WishList = ({ addWishList, setAddWishList }) => {
+	const removeWishList = (productId) => {
+		setAddWishList(addWishList.filter((p) => p.id !== productId));
+	};
+
 	return (
 		<div className="wishlist">
 			<h3>Wishlist</h3>
-			{/* {addWishlist.length === 0 && <h4>Your wishlist is empty</h4>} */}
-			{/* {addWishlist.map((wish) => {
-				return (
-					<div className="wishlist-product" key={wish.id}>
-						<img src={wish.img} alt={wish.name} />
-						<div className="product-content">
-							<p className="product-name">{wish.name}</p>
-							<p className="product-price">${wish.price}</p>
+			{addWishList.length === 0 ? (
+				<h4>Your wishlist is empty</h4>
+			) : (
+				addWishList.map((wish) => {
+					return (
+						<div className="wishlist-product" key={wish.id}>
+							<img src={wish.img} alt={wish.name} />
+							<div className="product-content">
+								<p className="product-name">{wish.name}</p>
+								<p className="product-price">${wish.price}</p>
+							</div>
+							<div className="delete" onClick={() => removeWishList(wish.id)}>
+								<AiOutlineDelete />
+							</div>
 						</div>
-					</div>
-				);
-			})} */}
+					);
+				})
+			)}
 		</div>
 	);
 };
 
-const Header = () => {
+const Header = ({ addWishList, setAddWishList }) => {
 	const [wishlist, setWishlist] = useState(false);
-
 	return (
 		<header className="header-container">
 			<Top />
@@ -66,9 +76,14 @@ const Header = () => {
 							alt="heart"
 							onClick={() => setWishlist(!wishlist)}
 						/>
-						{/* <p>{addWishlist.length}</p> */}
+						<p>{addWishList.length}</p>
 					</div>
-					{/* {wishlist && <WishList addWishlist={addWishlist} />} */}
+					{wishlist && (
+						<WishList
+							addWishList={addWishList}
+							setAddWishList={setAddWishList}
+						/>
+					)}
 					<div className="cart align-center">
 						<img src="icons/shopping-cart.svg" alt="cart" />
 						<p>0</p>

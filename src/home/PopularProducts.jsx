@@ -2,7 +2,7 @@ import React from "react";
 import { ProductBox } from "../components/ProductBox";
 import { popularProducts } from "../data/products";
 
-const PopularProducts = ({ handleWishlist }) => {
+const PopularProducts = ({ addWishList, setAddWishList }) => {
 	return (
 		<div className="popular-container">
 			<div className="popular-header">
@@ -20,7 +20,8 @@ const PopularProducts = ({ handleWishlist }) => {
 						<ProductBox
 							product={product}
 							key={product.id}
-							handleWishlist={handleWishlist}
+							addWishList={addWishList}
+							setAddWishList={setAddWishList}
 						/>
 					);
 				})}

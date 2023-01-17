@@ -1,30 +1,35 @@
 import React, { useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { Modal } from "./Modal";
+import { Link } from "react-router-dom";
 
-export const ProductBox = ({ product, handleWishlist }) => {
+export const ProductBox = ({ product, addWishList, setAddWishList }) => {
 	const [heart, setHeart] = useState(false);
 	const [show, setShow] = useState(false);
+	const [isLiked, setIsLiked] = useState(false);
 
-	const handleProduct = (productId) => {
-		setShow(true);
+	const handleWishlist = (productId) => {
+		setHeart(!heart);
 		if (productId === product.id) {
-			return product;
+			// const exist = addWishList.find((product) => product.id === productId);
+			// if (exist) return;
+			setIsLiked(!isLiked);
+			setAddWishList([...addWishList, product]);
+			if (isLiked) {
+				setAddWishList(addWishList.filter((p) => p.id !== productId));
+			}
 		}
 	};
 
 	return (
 		<div className="popular-product">
 			<div className="heart-icon" onClick={() => handleWishlist(product.id)}>
-				<div className="heart" onClick={() => setHeart(!heart)}>
-					{heart ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
-				</div>
+				{heart ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
 			</div>
-			<img
-				src={product.img}
-				alt="camera"
-				onClick={() => handleProduct(product.id)}
-			/>
+			<Link to={`/detail/${product.id}`} state={product}>
+				<img src={product.img} alt="camera" />
+			</Link>
+
 			<div className="content">
 				<div className="review">
 					<p>{product.name}</p>
@@ -33,7 +38,7 @@ export const ProductBox = ({ product, handleWishlist }) => {
 				</div>
 				<img src="img/cart.svg" alt="cart" />
 			</div>
-			<Modal show={show} onClose={() => setShow(false)} product={product} />
+			{/* <Modal show={show} onClose={() => setShow(false)} product={product} /> */}
 		</div>
 	);
 };

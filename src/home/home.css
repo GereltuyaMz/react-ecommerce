@@ -306,10 +306,10 @@
 .first-product {
 	display: flex;
 	align-items: center;
-	flex: 0.6;
+	flex: 0.8;
 	border: 1px solid var(--primary-grey);
 	border-radius: 20px;
-	padding: 20px 50px;
+	padding: 20px;
 }
 
 .product {
