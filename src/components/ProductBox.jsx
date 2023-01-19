@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { Modal } from "./Modal";
 import { Link } from "react-router-dom";
 
 export const ProductBox = ({ product, addWishList, setAddWishList }) => {
 	const [heart, setHeart] = useState(false);
-	const [show, setShow] = useState(false);
 	const [isLiked, setIsLiked] = useState(false);
 
 	const handleWishlist = (productId) => {
 		setHeart(!heart);
 		if (productId === product.id) {
-			// const exist = addWishList.find((product) => product.id === productId);
-			// if (exist) return;
 			setIsLiked(!isLiked);
 			setAddWishList([...addWishList, product]);
 			if (isLiked) {
@@ -29,7 +25,6 @@ export const ProductBox = ({ product, addWishList, setAddWishList }) => {
 			<Link to={`/detail/${product.id}`} state={product}>
 				<img src={product.img} alt="camera" />
 			</Link>
-
 			<div className="content">
 				<div className="review">
 					<p>{product.name}</p>
@@ -38,7 +33,6 @@ export const ProductBox = ({ product, addWishList, setAddWishList }) => {
 				</div>
 				<img src="img/cart.svg" alt="cart" />
 			</div>
-			{/* <Modal show={show} onClose={() => setShow(false)} product={product} /> */}
 		</div>
 	);
 };

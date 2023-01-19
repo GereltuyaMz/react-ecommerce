@@ -7,22 +7,22 @@ const Navigation = () => {
 			<ul className="navigation-bar">
 				<li className="categories">
 					<a href="#">Browse categories</a>
-					<img src="icons/arrow-down.svg" alt="arrow-down" />
+					<img src="/icons/arrow-down.svg" alt="arrow-down" />
 				</li>
 				<li>
 					<Link to="/">Home</Link>
-					<img src="icons/arrow-down-black.svg" alt="arrow-down" />
+					<img src="/icons/arrow-down-black.svg" alt="arrow-down" />
 				</li>
 				<li>
 					<Link to="/signIn">Sign in</Link>
-					<img src="icons/arrow-down-black.svg" alt="arrow-down" />
+					<img src="/icons/arrow-down-black.svg" alt="arrow-down" />
 				</li>
 				<li>
 					<Link to="/about">About</Link>
 				</li>
 				<li>
 					<a href="#">Pages</a>
-					<img src="icons/arrow-down-black.svg" alt="arrow-down" />
+					<img src="/icons/arrow-down-black.svg" alt="arrow-down" />
 				</li>
 				<li>
 					<a href="#">About Us</a>

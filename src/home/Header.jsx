@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./home.css";
 import { AiOutlineDelete } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Top = () => {
 	return (
@@ -10,11 +11,11 @@ const Top = () => {
 			</div>
 			<div className="top-content">
 				<div className="store">
-					<img src="icons/location.svg" alt="location" />
+					<img src="/icons/location.svg" alt="location" />
 					<p>Our store</p>
 				</div>
 				<div className="order">
-					<img src="icons/truck.svg" alt="truck" />
+					<img src="/icons/truck.svg" alt="truck" />
 					<p>Track your order</p>
 				</div>
 			</div>
@@ -52,14 +53,15 @@ const WishList = ({ addWishList, setAddWishList }) => {
 	);
 };
 
-const Header = ({ addWishList, setAddWishList }) => {
+const Header = ({ addWishList, setAddWishList, cart }) => {
 	const [wishlist, setWishlist] = useState(false);
+	// console.log("cart wishlist", cart);
 	return (
 		<header className="header-container">
 			<Top />
 			<div className="header">
 				<div className="left-side">
-					<img src="icons/logo.svg" alt="logo" />
+					<img src="/icons/logo.svg" alt="logo" />
 					<div className="search-input">
 						<input type="text" id="search" placeholder="Search any things" />
 						<button className="search-btn">Search</button>
@@ -67,12 +69,12 @@ const Header = ({ addWishList, setAddWishList }) => {
 				</div>
 				<div className="personal-status">
 					<div className="sign-in align-center">
-						<img src="icons/user.svg" alt="user" />
+						<img src="/icons/user.svg" alt="user" />
 						<p>Sign in</p>
 					</div>
 					<div className="hearts align-center">
 						<img
-							src="icons/heart.svg"
+							src="/icons/heart.svg"
 							alt="heart"
 							onClick={() => setWishlist(!wishlist)}
 						/>
@@ -85,8 +87,10 @@ const Header = ({ addWishList, setAddWishList }) => {
 						/>
 					)}
 					<div className="cart align-center">
-						<img src="icons/shopping-cart.svg" alt="cart" />
-						<p>0</p>
+						<Link to="/cart">
+							<img src="/icons/shopping-cart.svg" alt="cart" />
+						</Link>
+						<p>{cart.length}</p>
 					</div>
 				</div>
 			</div>
